@@ -8,14 +8,13 @@ void combine(int *arrPtr, int *temp, int start, int end, int index, int c)
     if (index == c)
     {
         for (int i = 0; i < c; i++)
-        {
-            cout << arrPtr[i];
-        }
+            cout << temp[i] << " ";
+
         cout << endl;
         return;
     }
 
-    for (int i = start; i <= end && end - i - 1 >= c - index; i++)
+    for (int i = start; i <= end; i++)
     {
         temp[index] = arrPtr[i];
 
@@ -25,7 +24,7 @@ void combine(int *arrPtr, int *temp, int start, int end, int index, int c)
 
 void PrintCombination(int *arrayPtr, int n, int c)
 {
-    int temp[c];
+    int *temp = new int[c];
 
     combine(arrayPtr, temp, 0, n - 1, 0, c);
 }
